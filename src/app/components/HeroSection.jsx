@@ -1,159 +1,211 @@
-import React from "react";
-import { ArrowRight, TrendingUp, Shield, Users } from "lucide-react";
+'use client';
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Slider } from "./ui/slider";
+import { Play, TrendingUp, ArrowUp, Phone, Mail, HelpCircle, BookOpen, User } from "lucide-react";
+import { useState } from "react";
 
-const Button = ({ children, className, variant, size, ...props }) => {
-  const base =
-    "rounded-2xl font-semibold transition-all inline-flex items-center justify-center";
-  const sizes = {
-    lg: "text-lg px-8 py-6",
-    md: "px-4 py-2",
+export const HeroSection = () => {
+  const [investment, setInvestment] = useState(100000);
+  const [duration, setDuration] = useState([3]);
+  const [returnRate, setReturnRate] = useState([7]);
+
+  const calculateReturns = () => {
+    const principal = investment;
+    const years = duration[0];
+    const rate = returnRate[0] / 100;
+    const amount = principal * Math.pow(1 + rate, years);
+    const interest = amount - principal;
+    return { amount: Math.round(amount), interest: Math.round(interest) };
   };
-  const variants = {
-    primary: "bg-primary text-white hover:bg-primary-dark",
-    outline: "border border-white/30 text-white hover:bg-white/10",
-  };
+
+  const { amount, interest } = calculateReturns();
 
   return (
-    <button
-      className={`${base} ${sizes[size] || ""} ${variants[variant || "primary"]
-        } ${className || ""}`}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-};
-
-const HeroSection = () => {
-  return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary-dark to-primary min-h-screen flex items-center">
-      <div className="absolute top-4 right-4 flex gap-2 sm:gap-4 z-20">
-        <Button
-          size="sm"
-          className="btn-hero group px-3 py-1.5 text-xs sm:size-md sm:px-4 sm:py-2 sm:text-sm"
-        >
-          Login
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          className="text-white px-3 py-1.5 text-xs sm:size-md sm:px-4 sm:py-2 sm:text-sm"
-        >
-          SignUp
-        </Button>
-      </div>
-
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-primary-light rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-success rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-2000"></div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12">
-          <div className="space-y-8 text-white">
-            <div className="space-y-4">
-              <h3 className="text-xl sm:text-2xl lg:text-4xl font-bold leading-tight">
-                <span className="gradient-text bg-primary bg-clip-text text-transparent">
-                  InvestPro
-                </span>
-              </h3>
-              <div className="inline-flex items-center space-x-1 sm:space-x-2 bg-white/10 rounded-full px-2 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium backdrop-blur-sm">
-                <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-success" />
-                <span>Trusted by 50,000+ investors</span>
-              </div>
-
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
-                Smart Investing
-                <br />
-                <span className="gradient-text bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
-                  Made Simple
-                </span>
-              </h1>
-
-              <p className="text-xl lg:text-2xl text-blue-100 max-w-lg leading-relaxed">
-                Build wealth with our curated selection of high-yield, secure
-                investment opportunities. Start with as little as ₹1,000.
-              </p>
+    <>
+      {/* Top contact bar */}
+      <div className="bg-white py-2 px-4 border-b">
+        <div className="container mx-auto flex items-center justify-between text-sm">
+          <div className="hidden md:flex items-center space-x-6">
+            <div className="flex items-center space-x-2">
+              <Phone className="w-4 h-4 text-blue-600" />
+              <a href="tel:8882200300" className="text-blue-600 hover:underline">
+                +91-8882-200-300
+              </a>
             </div>
-            <div className="grid grid-cols-3 gap-6 py-8">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-success/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <Shield className="w-6 h-6 text-success" />
-                </div>
-                <div className="text-2xl font-bold">12%+</div>
-                <div className="text-sm text-blue-200">Avg. Returns</div>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-success/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <Users className="w-6 h-6 text-success" />
-                </div>
-                <div className="text-2xl font-bold">50K+</div>
-                <div className="text-sm text-blue-200">Happy Investors</div>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-success/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <TrendingUp className="w-6 h-6 text-success" />
-                </div>
-                <div className="text-2xl font-bold">₹500Cr+</div>
-                <div className="text-sm text-blue-200">Assets Managed</div>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="md" className="btn-hero group">
-                Start Investing Now
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button
-                variant="outline"
-                size="md"
-                className="text-white text-lg"
-              >
-                Watch Demo
-              </Button>
-            </div>
-            <div className="pt-8 pb-8 border-t border-white/20">
-              <p className="text-sm text-blue-200 mb-4">
-                Regulated by SEBI
-              </p>
-              <div className="flex items-center space-x-6 text-xs text-blue-300">
-                <span>★★★★★ 4.8 rating</span>
-                <span>•</span>
-                <span>ISO 27001 Certified</span>
-                <span>•</span>
-                <span>Bank-grade Security</span>
-              </div>
+            <div className="flex items-center space-x-2">
+              <Mail className="w-4 h-4 text-blue-600" />
+              <a href="mailto:info@bondsindia.com" className="text-blue-600 hover:underline">
+                info@bondsindia.com
+              </a>
             </div>
           </div>
-          <div className="pb-8 px-2 md:pb-0 md:px-0 flex flex-col justify-around">
-            <div className="relative">
-              <div className="float-animation">
-                <img
-                  src="../assets/stock-market.jpg"
-                  alt="Investment Platform Dashboard"
-                  className="w-full h-auto rounded-2xl shadow-2xl"
-                />
+          <div className="flex items-center space-x-4">
+            <Button variant="outline" size="sm" className="flex items-center space-x-2 bg-accent-foreground">
+              <HelpCircle className="w-4 h-4" />
+              <span>Help</span>
+            </Button>
+            <Button variant="outline" size="sm" className="flex items-center space-x-2 bg-accent-foreground">
+              <BookOpen className="w-4 h-4" />
+              <span>BondsPedia</span>
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Top notification bar */}
+      <div className="bg-orange-100 py-2 px-4 text-center text-sm">
+        <span className="text-muted-foreground">We have special deals every day.</span>
+        <Button variant="link" className="text-orange-600 font-medium p-0 ml-1 h-auto">
+          Find Your Deal
+        </Button>
+      </div>
+
+      {/* Navigation Header */}
+      <header className="bg-white border-b px-4 py-4">
+        <div className="container mx-auto flex items-center justify-between">
+          <div className="flex items-center space-x-8">
+            <div className="text-2xl font-bold">
+              <span className="text-orange-500">BONDS</span>
+              <span className="text-blue-600">INDIA</span>
+            </div>
+            <nav className="hidden md:flex items-center space-x-6">
+              <a href="#" className="text-muted-foreground hover:text-orange-600">How it Works</a>
+              <a href="#" className="text-muted-foreground hover:text-orange-600">Bonds Library</a>
+              <a href="#" className="text-muted-foreground hover:text-orange-600">Products</a>
+              <a href="#" className="text-muted-foreground hover:text-orange-600">Resources</a>
+              <a href="#" className="text-muted-foreground hover:text-orange-600">Who we are</a>
+            </nav>
+          </div>
+          <div className="flex items-center space-x-4">
+            <Button variant="outline" size="sm" className="bg-accent-foreground">
+              <User className="w-4 h-4 mr-2" />
+              LOGIN
+            </Button>
+            <Button className="bg-orange-500 hover:bg-orange-600" size="sm">SIGNUP</Button>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-orange-50 to-blue-50 py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h1 className="text-5xl font-bold text-foreground leading-tight">
+                  The easy, fast way to<br />
+                  invest money in <span className="text-orange-600 px-2 py-1 rounded">BONDS</span>
+                </h1>
+                
+                <Button 
+                  variant="outline" 
+                  className="flex items-center space-x-2 bg-blue-600 text-white border-blue-600 hover:bg-blue-700"
+                >
+                  <Play className="w-4 h-4" />
+                  <span>What are Bonds & How do I Invest?</span>
+                </Button>
               </div>
-              <div className="absolute -top-4 -left-4 bg-[#0f172b] rounded-lg p-4 shadow-lg">
-                <div className="text-sm text-muted-foreground">
-                  Portfolio Value
+
+              {/* Statistics */}
+              <div className="flex space-x-8">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-blue-600">106392+</div>
+                  <div className="text-muted-foreground">Users</div>
                 </div>
-                <div className="text-xl font-bold text-primary">₹2,45,678</div>
-                <div className="text-xs text-success">+12.5% this month</div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-blue-600">16936+</div>
+                  <div className="text-muted-foreground">Bonds</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-blue-600">29+</div>
+                  <div className="text-muted-foreground">IPOs</div>
+                </div>
               </div>
-              <div className="absolute -bottom-4 -right-4 bg-[#0f172b] rounded-lg p-4 shadow-lg">
-                <div className="text-sm text-muted-foreground">
-                  Monthly Returns
+            </div>
+
+            {/* Right Calculator */}
+            <div className="bg-white rounded-lg shadow-lg p-6 space-y-6">
+              <div>
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
+                  Your Investment
+                </label>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-xl">₹</span>
+                  <Input
+                    type="number"
+                    value={investment}
+                    onChange={(e) => setInvestment(Number(e.target.value))}
+                    className="pl-8 text-xl font-semibold h-12"
+                  />
                 </div>
-                <div className="text-xl font-bold text-primary">₹18,450</div>
-                <div className="text-xs text-success">+8.2% growth</div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
+                  Duration (Years)
+                </label>
+                <div className="space-y-2">
+                  <Slider
+                    value={duration}
+                    onValueChange={setDuration}
+                    max={10}
+                    min={1}
+                    step={1}
+                    className="w-full"
+                  />
+                  <div className="text-right text-lg font-semibold">{duration[0]}</div>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
+                  Return Rate (%)
+                </label>
+                <div className="space-y-2">
+                  <Slider
+                    value={returnRate}
+                    onValueChange={setReturnRate}
+                    max={15}
+                    min={1}
+                    step={0.1}
+                    className="w-full"
+                  />
+                  <div className="text-right text-lg font-semibold">{returnRate[0]}%</div>
+                </div>
+              </div>
+
+              <div className="border-t pt-6 space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-muted-foreground">After {duration[0]} Years, You will receive</span>
+                  <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-orange-500 rounded-full"></div>
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <div className="flex items-center space-x-2">
+                    <span className="text-3xl font-bold text-orange-500">₹ {amount.toLocaleString()}</span>
+                    <ArrowUp className="w-5 h-5 text-green-500" />
+                  </div>
+                  <div className="text-muted-foreground">
+                    and <span className="font-semibold text-green-600">₹ {interest.toLocaleString()}</span> as interest
+                  </div>
+                </div>
+
+                <div className="text-center text-sm text-muted-foreground mb-4">
+                  We have curated the best investments for you!
+                </div>
+
+                <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3">
+                  START INVESTING NOW
+                </Button>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
-
-export default HeroSection;

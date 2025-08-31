@@ -1,112 +1,209 @@
-import React from "react";
+'use client';
+
 import { Card, CardContent } from "./ui/card";
+import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
-import { UserPlus, Search, TrendingUp, Wallet, ArrowRight } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
 
-const steps = [
-  {
-    step: "01",
-    icon: UserPlus,
-    title: "Sign Up",
-    description:
-      "Create your account in under 3 minutes with just your basic details and bank information",
-  },
-  {
-    step: "02",
-    icon: Search,
-    title: "Choose Investments",
-    description:
-      "Browse our curated selection of bonds, FDs, and alternative investments with detailed analysis",
-  },
-  {
-    step: "03",
-    icon: TrendingUp,
-    title: "Track Portfolio",
-    description:
-      "Monitor your investments in real-time with detailed performance analytics and insights",
-  },
-  {
-    step: "04",
-    icon: Wallet,
-    title: "Earn Returns",
-    description:
-      "Receive regular payouts and watch your wealth grow with compound interest",
-  },
-];
+import "swiper/css";
+import "swiper/css/pagination";
 
-const HowItWorks = () => {
+export const HowItWorks = () => {
+  const categories = [
+    "Latest Arrivals",
+    "Tax Free",
+    "Corporate",
+    "Government",
+    "PSU",
+    "Zero Coupons",
+    "Sovereign Gold",
+    "Perpetual",
+    "Convertible",
+  ];
+
+  const bonds = [
+    {
+      name: "GOVERNMENT OF INDIA",
+      logo: "https://placehold.co/60x60?text=GOI",
+      seal: "SOVEREIGN",
+      price: "₹ 69.3503",
+      coupon: "0%",
+      yield: "5.9%",
+      frequency: "-1",
+      maturity: "16 Dec 2031",
+      issuer: "GOI STRIPS",
+    },
+    {
+      name: "VEDIKA CREDIT CA...",
+      logo: "https://placehold.co/60x60?text=VEDIKA",
+      seal: "A",
+      price: "₹ 94.3325",
+      coupon: "10.25%",
+      yield: "13.2%",
+      frequency: "QUARTERLY",
+      maturity: "25 Mar 2027",
+      issuer: "VEDIKA CREDIT",
+    },
+    {
+      name: "POWER FINANCE CO...",
+      logo: "https://placehold.co/60x60?text=PFC",
+      seal: "AA+",
+      price: "₹ 98.1250",
+      coupon: "8.75%",
+      yield: "9.1%",
+      frequency: "ANNUAL",
+      maturity: "15 Jan 2029",
+      issuer: "POWER FINANCE",
+    },
+    {
+      name: "TATA CAPITAL FIN...",
+      logo: "https://placehold.co/60x60?text=TATA",
+      seal: "AAA",
+      price: "₹ 101.4532",
+      coupon: "7.85%",
+      yield: "8.2%",
+      frequency: "QUARTERLY",
+      maturity: "10 Nov 2028",
+      issuer: "TATA CAPITAL",
+    },
+    {
+      name: "L&T FINANCE LTD...",
+      logo: "https://placehold.co/60x60?text=L%26T",
+      seal: "AA",
+      price: "₹ 97.8765",
+      coupon: "9.40%",
+      yield: "10.1%",
+      frequency: "SEMI-ANNUAL",
+      maturity: "03 May 2026",
+      issuer: "L&T FINANCE",
+    },
+    {
+      name: "INDIABULLS HOUSING...",
+      logo: "https://placehold.co/60x60?text=IBH",
+      seal: "A+",
+      price: "₹ 95.1200",
+      coupon: "11.00%",
+      yield: "12.5%",
+      frequency: "MONTHLY",
+      maturity: "01 Apr 2027",
+      issuer: "INDIABULLS",
+    },
+    {
+      name: "RELIANCE RETAIL VEN...",
+      logo: "https://placehold.co/60x60?text=RRVL",
+      seal: "AAA",
+      price: "₹ 100.0000",
+      coupon: "7.20%",
+      yield: "7.6%",
+      frequency: "ANNUAL",
+      maturity: "12 Dec 2030",
+      issuer: "RELIANCE RETAIL",
+    },
+    {
+      name: "HDFC BANK LTD...",
+      logo: "https://placehold.co/60x60?text=HDFC",
+      seal: "AAA",
+      price: "₹ 99.5000",
+      coupon: "6.85%",
+      yield: "7.1%",
+      frequency: "QUARTERLY",
+      maturity: "20 Sep 2029",
+      issuer: "HDFC BANK",
+    },
+  ];
+
   return (
-    <section className="py-20 bg-background">
+    <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground">
-            How It Works
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h3 className="text-sm font-semibold text-muted-foreground mb-2">SEE OUR BEST LIST</h3>
+          <h2 className="text-3xl font-bold mb-4">
+            We have curated investments based on categories
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Getting started is simple. Follow these four easy steps to begin
-            your investment journey.
-          </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8">
-            {steps.map((step, index) => (
-              <Card
-                key={step.step}
-                className={`card-hover border-l-4 border-l-primary fade-in-up stagger-${
-                  index + 1
-                }`}
-              >
-                <CardContent className="px-4 py-1">
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-light rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
-                        {step.step}
+        {/* Categories */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {categories.map((category, index) => (
+            <Badge
+              key={index}
+              variant={index === 0 ? "default" : "outline"}
+              className={index === 0 ? "bg-orange-500 hover:bg-orange-600 text-white" : ""}
+            >
+              {category}
+            </Badge>
+          ))}
+        </div>
+
+        {/* Swiper Carousel */}
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          spaceBetween={20}
+          slidesPerView={1}
+          loop
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          pagination={{ clickable: true }}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+        >
+          {bonds.map((bond, index) => (
+            <SwiperSlide key={`${bond.name}-${index}`}>
+              <Card className="shadow-lg hover:shadow-xl transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center space-x-3">
+                      <img src={bond.logo} alt={bond.name} className="w-12 h-12 rounded" />
+                      <div>
+                        <h3 className="font-semibold text-lg">{bond.name}</h3>
+                        <Badge variant="outline" className="text-xs">
+                          {bond.seal}
+                        </Badge>
                       </div>
-                    </div>
-                    <div className="flex-grow">
-                      <div className="flex items-center space-x-3 mb-3">
-                        <step.icon className="w-6 h-6 text-primary" />
-                        <h3 className="text-xl font-semibold text-foreground">
-                          {step.title}
-                        </h3>
-                      </div>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {step.description}
-                      </p>
                     </div>
                   </div>
+
+                  <div className="grid grid-cols-2 gap-4 mb-6 text-sm">
+                    <div>
+                      <span className="text-muted-foreground">Price</span>
+                      <div className="font-semibold">{bond.price}</div>
+                    </div>
+                    <div>
+                      <span className="text-muted-foreground">Coupon</span>
+                      <div className="font-semibold">{bond.coupon}</div>
+                    </div>
+                    <div>
+                      <span className="text-muted-foreground">Yield</span>
+                      <div className="font-semibold text-green-600">{bond.yield}</div>
+                    </div>
+                    <div>
+                      <span className="text-muted-foreground">IP Frequency</span>
+                      <div className="font-semibold">{bond.frequency}</div>
+                    </div>
+                    <div>
+                      <span className="text-muted-foreground">Maturity Date</span>
+                      <div className="font-semibold">{bond.maturity}</div>
+                    </div>
+                    <div>
+                      <span className="text-muted-foreground">Issuer</span>
+                      <div className="font-semibold">{bond.issuer}</div>
+                    </div>
+                  </div>
+
+                  <Button className="bg-orange-500 hover:bg-orange-600 px-8 w-full">
+                    KNOW MORE
+                  </Button>
                 </CardContent>
               </Card>
-            ))}
-            <div className="pt-8">
-              <Button size="lg" className="btn-success text-lg px-8 py-6 group">
-                Get Started Today
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </div>
-          </div>
-          <div className="relative">
-            <div className="bg-gradient-to-br from-muted to-secondary/50 rounded-3xl p-8 lg:p-12">
-              <img
-                src='../assets/personalisation.jpg'
-                alt="Investment Process Illustration"
-                className="w-full h-auto rounded-2xl shadow-xl"
-              />
-              <div className="absolute top-4 right-4 bg-primary text-primary-foreground rounded-lg px-3 py-2 text-sm font-medium shadow-lg">
-                ✨ Quick Setup
-              </div>
-              <div className="absolute bottom-4 left-4 bg-primary text-primary-foreground rounded-lg px-3 py-2 text-sm font-medium shadow-lg">
-                📈 Smart Investing
-              </div>
-            </div>
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-success/20 rounded-full blur-xl"></div>
-            <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary/20 rounded-full blur-xl"></div>
-          </div>
-        </div>
+            </SwiperSlide>
+          ))}
+
+
+        </Swiper>
       </div>
     </section>
   );
 };
-
-export default HowItWorks;
