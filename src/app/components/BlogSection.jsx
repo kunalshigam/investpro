@@ -57,13 +57,10 @@ export const BlogSection = () => {
     return (
         <section className="py-16 bg-gray-50">
             <div className="container mx-auto px-4">
-                {/* Heading */}
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold mb-4">Read more from Blog</h2>
                 </div>
 
-                {/* Blog Posts Grid */}
-                {/* <div className="grid md:grid-cols-3 gap-6 mb-8"> */}
                 <Swiper
                     modules={[Autoplay, Pagination]}
                     spaceBetween={20}
@@ -82,13 +79,6 @@ export const BlogSection = () => {
                                 key={index}
                                 className="shadow-lg hover:shadow-xl transition-shadow overflow-hidden"
                             >
-                                {/* <div className="aspect-video overflow-hidden">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-full object-cover"
-                />
-              </div> */}
                                 <CardContent className="p-6">
                                     <h3 className="font-bold text-lg mb-2 line-clamp-2">
                                         {post.title}
@@ -105,9 +95,7 @@ export const BlogSection = () => {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-                {/* </div> */}
 
-                {/* Explore Button */}
                 <div className="text-center">
                     <Button className="bg-orange-500 hover:bg-orange-600 px-8">
                         EXPLORE OUR BLOG

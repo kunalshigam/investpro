@@ -81,10 +81,8 @@ export const TrustAndCredebility = () => {
   return (
     <section className="py-16 bg-white" aria-label="Trust and Testimonials Section">
       <div className="container mx-auto px-4">
-        {/* Trust Features */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {features.map(({ icon: Icon, title, description }, index) => (
-            // <SwiperSlide key={`${report.title}-${index}`}>
             <div key={index} className="text-center space-y-4">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
                 <Icon className="w-8 h-8 text-blue-600" aria-hidden="true" />
@@ -95,13 +93,11 @@ export const TrustAndCredebility = () => {
           ))}
         </div>
 
-        {/* Testimonials */}
         <div className="text-center mb-12">
           <Badge className="mb-4 bg-green-100 text-green-700">INVESTOR TESTIMONIALS</Badge>
           <h2 className="text-3xl font-bold mb-4">What Our Investors Say</h2>
         </div>
 
-        {/* <div className="grid md:grid-cols-3 gap-8 mb-12"> */}
         <Swiper
           modules={[Autoplay, Pagination]}
           spaceBetween={20}
@@ -134,9 +130,7 @@ export const TrustAndCredebility = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        {/* </div> */}
 
-        {/* Compliance Badges */}
         <div className="text-center">
           <h3 className="text-xl font-semibold mb-6">Regulated &amp; Compliant</h3>
           <div className="flex justify-center items-center space-x-8 opacity-60 flex-wrap gap-4">

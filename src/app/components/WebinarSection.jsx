@@ -30,7 +30,6 @@ export const WebinarsSection = () => {
           </p>
         </div>
 
-        {/* Features */}
         <div className="flex flex-wrap justify-center gap-4 mb-12" role="list">
           {features.map((feature, index) => (
             <Badge key={index} variant="outline" className="px-4 py-2" role="listitem">
@@ -39,7 +38,6 @@ export const WebinarsSection = () => {
           ))}
         </div>
 
-        {/* Upcoming Webinar */}
         {hasUpcoming ? (
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
@@ -49,11 +47,6 @@ export const WebinarsSection = () => {
 
             <Card className="shadow-lg overflow-hidden">
               <div className="aspect-video overflow-hidden">
-                {/* <img 
-                  src={upcomingWebinar.image} 
-                  alt="Webinar Banner"
-                  className="w-full h-full object-cover"
-                /> */}
                 <img
                 src='../assets/personalisation.jpg'
                 alt="Webinar"
@@ -83,7 +76,6 @@ export const WebinarsSection = () => {
             </Card>
           </div>
         ) : (
-          /* No Upcoming Section */
           <div className="text-center mt-8 p-8 bg-gray-50 rounded-lg max-w-md mx-auto">
             <h3 className="text-xl font-semibold text-muted-foreground mb-4">
               No Upcoming Webinar

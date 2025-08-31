@@ -7,7 +7,6 @@ export const ValueProposition = () => {
   return (
     <section className="py-16 bg-white" aria-labelledby="value-proposition-title">
       <div className="container mx-auto px-4">
-        {/* Header */}
         <div className="text-center mb-12">
           <Badge className="mb-4 bg-blue-100 text-blue-700">BONDSINDIA DYNAMICS</Badge>
           <h2 id="value-proposition-title" className="text-4xl font-bold mb-4">
@@ -19,7 +18,6 @@ export const ValueProposition = () => {
           </p>
         </div>
 
-        {/* Value Props */}
         <div className="grid md:grid-cols-4 gap-8 mb-16">
           {[
             { icon: Zap, color: "orange", title: "Fast" },
@@ -39,9 +37,7 @@ export const ValueProposition = () => {
           ))}
         </div>
 
-        {/* Three Column Section */}
         <div className="grid md:grid-cols-3 gap-8">
-          {/* Our Motto */}
           <Card className="border-none shadow-sm">
             <CardContent className="p-6">
               <h4 className="text-sm font-semibold text-muted-foreground mb-2">OUR MOTTO</h4>
@@ -52,7 +48,6 @@ export const ValueProposition = () => {
             </CardContent>
           </Card>
 
-          {/* Where You Can Invest */}
           <Card className="border-none shadow-sm">
             <CardContent className="p-6">
               <h4 className="text-sm font-semibold text-muted-foreground mb-2">WHERE YOU CAN INVEST?</h4>
@@ -66,7 +61,6 @@ export const ValueProposition = () => {
             </CardContent>
           </Card>
 
-          {/* Our Process */}
           <Card className="border-none shadow-sm">
             <CardContent className="p-6">
               <h4 className="text-sm font-semibold text-muted-foreground mb-2">OUR PROCESS</h4>

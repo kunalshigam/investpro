@@ -21,7 +21,6 @@ export const NewsletterAndContact = () => {
     "Debt Mutual Fund", "Non-Convertible Debenture", "What are Bonds"
   ];
 
-  // Subscribe handler
   const handleSubscribe = () => {
     if (!email.trim()) {
       alert("Please enter your email.");
@@ -31,7 +30,6 @@ export const NewsletterAndContact = () => {
     setEmail("");
   };
 
-  // Callback form submit handler
   const handleSubmit = () => {
     const { name, phone, email: callbackEmail } = callbackData;
     if (!name.trim() || !phone.trim() || !callbackEmail.trim()) {
@@ -39,14 +37,12 @@ export const NewsletterAndContact = () => {
       return;
     }
 
-    // Replace this with real API submission
     alert(`Callback request submitted:\nName: ${name}\nPhone: ${phone}\nEmail: ${callbackEmail}`);
     setCallbackData({ name: "", phone: "", email: "" });
   };
 
   return (
     <>
-      {/* Newsletter Section */}
       <section className="py-16 bg-blue-600 text-white" aria-label="Newsletter Subscription">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
@@ -85,11 +81,9 @@ export const NewsletterAndContact = () => {
         </div>
       </section>
 
-      {/* Contact and Company Info */}
       <section className="py-16 bg-gray-900 text-white" aria-label="Contact and Company Information">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-12">
-            {/* Company Info */}
             <div className="space-y-6">
               <div className="flex items-center space-x-2">
                 <span className="text-orange-500 text-2xl font-bold">BONDS</span>
@@ -108,7 +102,6 @@ export const NewsletterAndContact = () => {
                 </div>
               </div>
 
-              {/* Quick Contact */}
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-orange-500" aria-hidden="true" />
@@ -125,7 +118,6 @@ export const NewsletterAndContact = () => {
               </div>
             </div>
 
-            {/* Products and Resources */}
             <div className="space-y-8">
               <div>
                 <h3 className="font-bold text-lg mb-4">Products</h3>
@@ -149,7 +141,6 @@ export const NewsletterAndContact = () => {
               </div>
             </div>
 
-            {/* Call Back Form */}
             <div>
               <Card className="bg-gray-800 border-gray-700">
                 <CardContent className="p-6">
@@ -202,7 +193,6 @@ export const NewsletterAndContact = () => {
                       </Button>
                     </div>
 
-                    {/* Call Options */}
                     <div className="pt-4 space-y-2">
                       <Button className="w-full bg-green-600 hover:bg-green-700" aria-label="Call Now">
                         <PhoneCall className="w-4 h-4 mr-2" aria-hidden="true" />
@@ -219,7 +209,6 @@ export const NewsletterAndContact = () => {
             </div>
           </div>
 
-          {/* Bond Classifications */}
           <div className="mt-16 pt-8 border-t border-gray-700">
             <h3 className="font-bold text-lg mb-6">Classifications</h3>
             <div className="flex flex-wrap gap-2">

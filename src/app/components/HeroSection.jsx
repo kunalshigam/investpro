@@ -23,7 +23,6 @@ export const HeroSection = () => {
 
   return (
     <>
-      {/* Top contact bar */}
       <div className="bg-white py-2 px-4 border-b">
         <div className="container mx-auto flex items-center justify-between text-sm">
           <div className="hidden md:flex items-center space-x-6">
@@ -53,7 +52,6 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      {/* Top notification bar */}
       <div className="bg-orange-100 py-2 px-4 text-center text-sm">
         <span className="text-muted-foreground">We have special deals every day.</span>
         <Button variant="link" className="text-orange-600 font-medium p-0 ml-1 h-auto">
@@ -61,7 +59,6 @@ export const HeroSection = () => {
         </Button>
       </div>
 
-      {/* Navigation Header */}
       <header className="bg-white border-b px-4 py-4">
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-8">
@@ -87,11 +84,9 @@ export const HeroSection = () => {
         </div>
       </header>
 
-      {/* Hero Section */}
       <section className="bg-gradient-to-br from-orange-50 to-blue-50 py-16">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
             <div className="space-y-8">
               <div className="space-y-4">
                 <h1 className="text-5xl font-bold text-foreground leading-tight">
@@ -108,7 +103,6 @@ export const HeroSection = () => {
                 </Button>
               </div>
 
-              {/* Statistics */}
               <div className="flex space-x-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-blue-600">106392+</div>
@@ -125,7 +119,6 @@ export const HeroSection = () => {
               </div>
             </div>
 
-            {/* Right Calculator */}
             <div className="bg-white rounded-lg shadow-lg p-6 space-y-6">
               <div>
                 <label className="block text-sm font-medium text-muted-foreground mb-2">

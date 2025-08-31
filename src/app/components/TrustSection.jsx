@@ -129,7 +129,6 @@ export const TrustSection = () => {
                             >
                                 <CardContent className="p-6 h-full flex flex-col justify-between">
                                     <div className="space-y-4">
-                                        {/* Rating */}
                                         <div className="flex items-center space-x-1">
                                             {[...Array(testimonial.rating)].map((_, i) => (
                                                 <Star
@@ -139,7 +138,6 @@ export const TrustSection = () => {
                                             ))}
                                         </div>
 
-                                        {/* Quote */}
                                         <div className="relative flex-1">
                                             <Quote className="w-8 h-8 text-primary/20 absolute -top-2 -left-2" />
                                             <p className="text-muted-foreground italic pl-6">
@@ -147,7 +145,6 @@ export const TrustSection = () => {
                                             </p>
                                         </div>
 
-                                        {/* Profile */}
                                         <div className="flex items-center space-x-3 pt-4 border-t border-border">
                                             <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-semibold">
                                                 {testimonial.avatar}

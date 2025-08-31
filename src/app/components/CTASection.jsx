@@ -5,7 +5,6 @@ import { ArrowRight, Phone, Mail } from "lucide-react";
 export const CTASection = () => {
   return (
     <>
-      {/* Newsletter Section */}
       <section className="py-16 bg-blue-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Stay Updated with Market Insights</h2>
@@ -24,7 +23,6 @@ export const CTASection = () => {
         </div>
       </section>
 
-      {/* Contact CTA */}
       <section className="py-16 bg-orange-500 text-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-center">

@@ -67,7 +67,6 @@ export const ResearchReports = () => {
                     </p>
                 </div>
 
-                {/* <div className="grid md:grid-cols-3 gap-6 mb-8"> */}
                 <Swiper
                     modules={[Autoplay, Pagination]}
                     spaceBetween={20}
@@ -116,7 +115,6 @@ export const ResearchReports = () => {
 
                     ))}
                 </Swiper>
-                {/* </div> */}
 
                 <div className="text-center">
                     <Button className="bg-orange-500 hover:bg-orange-600 px-8">

@@ -5,7 +5,7 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 
 export const FAQSection = () => {
-  const [openIndex, setOpenIndex] = useState(0); // Removed TS type
+  const [openIndex, setOpenIndex] = useState(0);
 
   const faqs = [
     {
@@ -72,7 +72,6 @@ export const FAQSection = () => {
             ))}
           </div>
 
-          {/* Expert Consultation */}
           <Card className="bg-blue-50 border-blue-200">
             <CardContent className="p-8 text-center">
               <h3 className="text-2xl font-bold mb-4">Got more questions?</h3>

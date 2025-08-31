@@ -75,7 +75,6 @@ export const AwardsSection = () => {
     return (
         <section className="py-16 bg-gray-50">
             <div className="container mx-auto px-4">
-                {/* Employee Testimonials */}
                 <div className="mb-16">
                     <div className="text-center mb-12">
                         <div className="flex items-center justify-center space-x-2 mb-4">
@@ -86,7 +85,6 @@ export const AwardsSection = () => {
                         </div>
                     </div>
 
-                    {/* <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"> */}
                     <Swiper
                         modules={[Autoplay, Pagination]}
                         spaceBetween={20}
@@ -127,10 +125,8 @@ export const AwardsSection = () => {
                             </SwiperSlide>
                         ))}
                     </Swiper>
-                    {/* </div> */}
                 </div>
 
-                {/* Awards Section */}
                 <div className="text-center mb-12">
                     <div className="flex items-center justify-center space-x-2 mb-8">
                         <Award className="w-6 h-6 text-orange-500" />

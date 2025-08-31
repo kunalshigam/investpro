@@ -8,8 +8,10 @@ import { Autoplay, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import { useState } from "react";
 
 export const HowItWorks = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
   const categories = [
     "Latest Arrivals",
     "Tax Free",
@@ -116,7 +118,6 @@ export const HowItWorks = () => {
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        {/* Header */}
         <div className="text-center mb-12">
           <h3 className="text-sm font-semibold text-muted-foreground mb-2">SEE OUR BEST LIST</h3>
           <h2 className="text-3xl font-bold mb-4">
@@ -124,20 +125,24 @@ export const HowItWorks = () => {
           </h2>
         </div>
 
-        {/* Categories */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map((category, index) => (
-            <Badge
-              key={index}
-              variant={index === 0 ? "default" : "outline"}
-              className={index === 0 ? "bg-orange-500 hover:bg-orange-600 text-white" : ""}
-            >
-              {category}
-            </Badge>
-          ))}
-        </div>
+  {categories.map((category, index) => (
+    <Badge
+      key={index}
+      onClick={() => setActiveIndex(index)}
+      variant={index === activeIndex ? "default" : "outline"}
+      className={
+        index === activeIndex
+          ? "bg-orange-500 hover:bg-orange-600 text-white cursor-pointer p-2"
+          : "cursor-pointer p-2"
+      }
+    >
+      {category}
+    </Badge>
+  ))}
+</div>
 
-        {/* Swiper Carousel */}
+
         <Swiper
           modules={[Autoplay, Pagination]}
           spaceBetween={20}

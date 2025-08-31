@@ -40,10 +40,8 @@ export const Footer = () => {
 
   return (
     <footer className="bg-gray-900 text-white">
-      {/* Main Footer */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
-          {/* Company Info */}
           <div className="space-y-4">
             <div className="text-2xl font-bold">
               <span className="text-orange-500">BONDS</span>
@@ -69,7 +67,6 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h3 className="font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
@@ -83,7 +80,6 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Investment Options */}
           <div>
             <h3 className="font-semibold mb-4">Investment Options</h3>
             <ul className="space-y-2 text-sm">
@@ -97,7 +93,6 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Legal & Social */}
           <div>
             <h3 className="font-semibold mb-4">Legal</h3>
             <ul className="space-y-2 text-sm mb-6">
@@ -134,7 +129,6 @@ export const Footer = () => {
 
       <Separator className="bg-gray-800" />
 
-      {/* Bottom Footer */}
       <div className="container mx-auto px-4 py-6">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="text-sm text-gray-400">
