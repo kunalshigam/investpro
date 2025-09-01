@@ -44,8 +44,9 @@ export const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <div className="text-2xl font-bold">
-              <span className="text-orange-500">BONDS</span>
-              <span className="text-blue-400">INDIA</span>
+                             <img src='../assets/bondsindialogo.svg' alt='logo' className="w-60 h-12 rounded" />
+              {/* <span className="text-orange-500">BONDS</span>
+              <span className="text-blue-400">INDIA</span> */}
             </div>
             <p className="text-gray-400 text-sm">
               India's leading digital bond investment platform. Making fixed-income investments

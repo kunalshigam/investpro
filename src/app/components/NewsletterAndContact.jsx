@@ -86,8 +86,9 @@ export const NewsletterAndContact = () => {
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="space-y-6">
               <div className="flex items-center space-x-2">
-                <span className="text-orange-500 text-2xl font-bold">BONDS</span>
-                <span className="text-blue-400 text-2xl font-bold">INDIA</span>
+                               <img src='../assets/bondsindialogo.svg' alt='logo' className="w-60 h-12 rounded" />
+                {/* <span className="text-orange-500 text-2xl font-bold">BONDS</span>
+                <span className="text-blue-400 text-2xl font-bold">INDIA</span> */}
                 <Badge className="ml-4 bg-blue-600">#BondsSimplified</Badge>
               </div>
 

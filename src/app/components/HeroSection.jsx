@@ -63,8 +63,9 @@ export const HeroSection = () => {
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-8">
             <div className="text-2xl font-bold">
-              <span className="text-orange-500">BONDS</span>
-              <span className="text-blue-600">INDIA</span>
+               <img src='../assets/bondsindialogo.svg' alt='logo' className="w-60 h-12 rounded" />
+              {/* <span className="text-orange-500">BONDS</span>
+              <span className="text-blue-600">INDIA</span> */}
             </div>
             <nav className="hidden md:flex items-center space-x-6">
               <a href="#" className="text-muted-foreground hover:text-orange-600">How it Works</a>
